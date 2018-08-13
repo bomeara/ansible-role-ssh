@@ -7,8 +7,8 @@
   shell: cp /home/{{ssh_user}}/.ssh/id_rsa.pub /tmp/{{ssh_user}}_id_rsa.pub
 #  local_action: command cp /home/{{ssh_user}}/.ssh/id_rsa.pub /tmp/{{ssh_user}}_id_rsa.pub
 
-- name: Add the authorized_key to the user {{ssh_user}}
-  authorized_key: user={{ssh_user}} key="{{ lookup('file', '/tmp/' + ssh_user + '_id_rsa.pub') }}"
+# - name: Add the authorized_key to the user {{ssh_user}}
+#   authorized_key: user={{ssh_user}} key="{{ lookup('file', '/tmp/' + ssh_user + '_id_rsa.pub') }}"
 
 - name: Update known hosts
   template: src=ssh_known_hosts.conf.j2 dest=/etc/ssh/ssh_known_hosts
