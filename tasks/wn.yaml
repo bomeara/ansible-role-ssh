@@ -5,8 +5,9 @@
 # - name: Add the authorized_key to the user '{{ssh_user}}'
 #   authorized_key: user={{ssh_user}} key="{{ lookup('file', '/tmp/' + ssh_user + '_id_rsa.pub') }}"
 
-- name: Cp the id_rsa.pub file to the user '{{ssh_user}}'
-  shell: cp /home/{{ssh_user}}/.ssh/id_rsa.pub /home/{{ssh_user}}/.ssh/id_rsa.pub
+# redundant
+#- name: Cp the id_rsa.pub file to the user '{{ssh_user}}'
+#  shell: cp /home/{{ssh_user}}/.ssh/id_rsa.pub /home/{{ssh_user}}/.ssh/id_rsa.pub
 
 #- name: Copy the id_rsa.pub file to the user '{{ssh_user}}'
 #  include: sudo_copy.yaml src=/home/{{ssh_user}}/.ssh/id_rsa.pub dest=/home/{{ssh_user}}/.ssh/id_rsa.pub owner={{ssh_user}} group={{ssh_user}} mode=0644
