@@ -3,8 +3,9 @@
 - name: Create ssh keys for defined user
   user: name={{ssh_user}} generate_ssh_key=yes shell=/bin/bash groups="{{USER_GROUP}}"
 
-- name: Copy generated public key
-  local_action: command cp /home/{{ssh_user}}/.ssh/id_rsa.pub /tmp/{{ssh_user}}_id_rsa.pub
+- name: Cp generated public key
+  shell: cp /home/{{ssh_user}}/.ssh/id_rsa.pub /tmp/{{ssh_user}}_id_rsa.pub
+#  local_action: command cp /home/{{ssh_user}}/.ssh/id_rsa.pub /tmp/{{ssh_user}}_id_rsa.pub
 
 - name: Add the authorized_key to the user {{ssh_user}}
   authorized_key: user={{ssh_user}} key="{{ lookup('file', '/tmp/' + ssh_user + '_id_rsa.pub') }}"
