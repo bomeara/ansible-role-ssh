@@ -12,8 +12,9 @@
 #- name: Copy the id_rsa.pub file to the user '{{ssh_user}}'
 #  include: sudo_copy.yaml src=/home/{{ssh_user}}/.ssh/id_rsa.pub dest=/home/{{ssh_user}}/.ssh/id_rsa.pub owner={{ssh_user}} group={{ssh_user}} mode=0644
 
-- name: Cp the id_rsa file to the user
-  shell: cp /home/{{ssh_user}}/.ssh/id_rsa /home/{{ssh_user}}/.ssh/id_rsa
+# redundant
+# - name: Cp the id_rsa file to the user
+#   shell: cp /home/{{ssh_user}}/.ssh/id_rsa /home/{{ssh_user}}/.ssh/id_rsa
 
 #- name: Copy the id_rsa file to the user
 #  include: sudo_copy.yaml src=/home/{{ssh_user}}/.ssh/id_rsa dest=/home/{{ssh_user}}/.ssh/id_rsa owner={{ssh_user}} group={{ssh_user}} mode=0600
