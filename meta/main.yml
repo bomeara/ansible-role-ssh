@@ -1,7 +1,7 @@
 galaxy_info:
-  author: alpegon3@upv.es
+  author: omeara.brian@gmail.com
   description: Install ssh
-  company:  GRyCAP
+  company:  omearalab
   license: Apache
   min_ansible_version: 1.8
   platforms:
